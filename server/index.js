@@ -21,11 +21,14 @@ app.use(session({
 app.post("/auth/login", (req, res)=> {
     req.session.username = req.body.username;
     req.session.password = req.body.password;
+    res.sendStatus(200)
 })
 
 app.post("/auth/logout", (req, res) => {
     req.session.destroy();
+    res.sendStatus(200)
 })
+
 //MIDDLEWARE 
 function authenticateUser(req, res, next) {
     // if(req.body.username === process.env.POST_USERNAME && req.body.password === process.env.POST_PASSWORD) {
