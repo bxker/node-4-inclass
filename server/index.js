@@ -23,7 +23,9 @@ app.post("/auth/login", (req, res)=> {
     req.session.password = req.body.password;
 })
 
-
+app.post("/auth/logout", (req, res) => {
+    req.session.destroy();
+})
 //MIDDLEWARE 
 function authenticateUser(req, res, next) {
     // if(req.body.username === process.env.POST_USERNAME && req.body.password === process.env.POST_PASSWORD) {
